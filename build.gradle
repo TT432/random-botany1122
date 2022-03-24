@@ -67,12 +67,4 @@ processResources {
     }
 }
 
-//task modifySource(dependsOn: assemble) {
-//    doLast {
-        sourceSets { main { output.resourcesDir = output.classesDir } }
-//    }
-//}
-//
-//afterEvaluate {
-//    runClient.dependsOn modifySource
-//}
+sourceSets { main { output.resourcesDir = output.classesDir } }

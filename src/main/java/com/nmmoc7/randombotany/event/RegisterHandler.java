@@ -3,6 +3,7 @@ package com.nmmoc7.randombotany.event;
 import com.nmmoc7.randombotany.RandomBotany;
 import com.nmmoc7.randombotany.specialflower.ModSpecialFlowers;
 import com.nmmoc7.randombotany.specialflower.generating.TinyPotatoBeliever;
+import com.nmmoc7.randombotany.specialflower.generating.Witch;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraftforge.client.event.ModelRegistryEvent;
@@ -21,6 +22,7 @@ public class RegisterHandler {
     @SubscribeEvent
     public static void onBlockRegister(RegistryEvent.Register<Block> event) {
         registerSubTile(ModSpecialFlowers.TINY_POTATO_BELIEVER_NAME, TinyPotatoBeliever.class);
+        registerSubTile(ModSpecialFlowers.WITCH_NAME, Witch.class);
     }
 
     static void registerSubTile(String name, Class<? extends SubTileEntity> classF) {
@@ -33,6 +35,7 @@ public class RegisterHandler {
     @SideOnly(Side.CLIENT)
     public static void onModelRegister(ModelRegistryEvent event) {
         BotaniaAPIClient.registerSubtileModel(TinyPotatoBeliever.class, getResourceLocation(ModSpecialFlowers.TINY_POTATO_BELIEVER_NAME));
+        BotaniaAPIClient.registerSubtileModel(Witch.class, getResourceLocation(ModSpecialFlowers.WITCH_NAME));
     }
 
     public static ModelResourceLocation getResourceLocation(String name) {

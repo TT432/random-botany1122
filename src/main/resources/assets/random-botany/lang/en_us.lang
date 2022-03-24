@@ -5,3 +5,7 @@ botania.category.rb.main=随意植物学
 botania.entry.believer=小土豆信徒
 botania.page.believer1=会吃掉小土豆产生中等魔力
 botania.page.believer2=当病娇成为虔信徒···
+
+botania.entry.witch=女巫花
+botania.page.witch1=会喝下药水产生大量魔力\n在连续喝下同一种药水后会衰减产出
+botania.page.witch2=溺水而亡

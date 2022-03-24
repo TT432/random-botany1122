@@ -1,7 +1,7 @@
 package com.nmmoc7.randombotany.specialflower.generating;
 
-import com.nmmoc7.randombotany.book.RandomBotanyCategory;
 import com.nmmoc7.randombotany.book.SpecialFlowerPages;
+import com.nmmoc7.randombotany.specialflower.generating.base.BaseGeneratingFlower;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
@@ -9,18 +9,13 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.SoundCategory;
-import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.world.WorldServer;
 import vazkii.botania.api.lexicon.LexiconEntry;
-import vazkii.botania.api.subtile.RadiusDescriptor;
-import vazkii.botania.api.subtile.SubTileGenerating;
 import vazkii.botania.common.item.block.ItemBlockTinyPotato;
 
 import java.util.List;
 
-public class TinyPotatoBeliever extends SubTileGenerating {
-    private static final int RANGE = 1;
-
+public class TinyPotatoBeliever extends BaseGeneratingFlower {
     private static final String TAG_COOLDOWN = "cooldown";
     int cooldown = 0;
 
@@ -52,17 +47,13 @@ public class TinyPotatoBeliever extends SubTileGenerating {
 
         int slowdown = getSlowdownFactor();
 
-        List<EntityItem> items = supertile.getWorld()
-                .getEntitiesWithinAABB(EntityItem.class,
-                        new AxisAlignedBB(supertile.getPos().add(-RANGE, -RANGE, -RANGE),
-                                supertile.getPos().add(RANGE + 1, RANGE + 1, RANGE + 1)),
-                        (item) -> {
-                            ItemStack stack = item.getItem();
-                            return !stack.isEmpty() &&
-                                    stack.getItem() instanceof ItemBlockTinyPotato &&
-                                    !item.isDead &&
-                                    item.getAge() >= slowdown;
-                        });
+        List<EntityItem> items = searchItems((item) -> {
+            ItemStack stack = item.getItem();
+            return !stack.isEmpty() &&
+                    stack.getItem() instanceof ItemBlockTinyPotato &&
+                    !item.isDead &&
+                    item.getAge() >= slowdown;
+        });
 
         for(EntityItem item : items) {
             ItemStack stack = item.getItem();
@@ -83,6 +74,7 @@ public class TinyPotatoBeliever extends SubTileGenerating {
             item.setDead();
         }
     }
+
     @Override
     public void writeToPacketNBT(NBTTagCompound cmp) {
         super.writeToPacketNBT(cmp);
@@ -98,11 +90,6 @@ public class TinyPotatoBeliever extends SubTileGenerating {
     }
 
     @Override
-    public RadiusDescriptor getRadius() {
-        return new RadiusDescriptor.Square(toBlockPos(), RANGE);
-    }
-
-    @Override
     public int getMaxMana() {
         return 90000;
     }
@@ -115,5 +102,10 @@ public class TinyPotatoBeliever extends SubTileGenerating {
     @Override
     public LexiconEntry getEntry() {
         return SpecialFlowerPages.TINY_POTATO_BELIEVER;
+    }
+
+    @Override
+    public int getRange() {
+        return 1;
     }
 }
