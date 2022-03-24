@@ -15,8 +15,6 @@ import vazkii.botania.api.BotaniaAPI;
 import vazkii.botania.api.BotaniaAPIClient;
 import vazkii.botania.api.subtile.SubTileEntity;
 import vazkii.botania.api.subtile.signature.BasicSignature;
-import vazkii.botania.common.block.subtile.generating.SubTileGourmaryllis;
-import vazkii.botania.common.lib.LibBlockNames;
 
 @Mod.EventBusSubscriber
 public class RegisterHandler {

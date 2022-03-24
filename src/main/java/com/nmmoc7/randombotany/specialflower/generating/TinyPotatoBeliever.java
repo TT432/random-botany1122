@@ -1,25 +1,21 @@
 package com.nmmoc7.randombotany.specialflower.generating;
 
-import com.nmmoc7.randombotany.specialflower.ModSpecialFlowers;
+import com.nmmoc7.randombotany.book.RandomBotanyCategory;
+import com.nmmoc7.randombotany.book.SpecialFlowerPages;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.AxisAlignedBB;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.WorldServer;
-import net.minecraftforge.items.ItemHandlerHelper;
 import vazkii.botania.api.lexicon.LexiconEntry;
 import vazkii.botania.api.subtile.RadiusDescriptor;
 import vazkii.botania.api.subtile.SubTileGenerating;
 import vazkii.botania.common.item.block.ItemBlockTinyPotato;
-import vazkii.botania.common.lib.LibItemNames;
 
-import java.awt.*;
 import java.util.List;
 
 public class TinyPotatoBeliever extends SubTileGenerating {
@@ -35,15 +31,18 @@ public class TinyPotatoBeliever extends SubTileGenerating {
     public void onUpdate() {
         super.onUpdate();
 
-        if (supertile.getWorld().isRemote)
+        if (supertile.getWorld().isRemote) {
             return;
+        }
 
-        if(cooldown > 0)
+        if(cooldown > 0) {
             cooldown--;
+        }
 
         if(tinyPotatoCount != 0 && cooldown == 0) {
-            if (--tinyPotatoCount != 0)
+            if (--tinyPotatoCount != 0) {
                 cooldown = tinyPotatoCount > 32 ? 50 : 100;
+            }
 
             mana = Math.min(getMaxMana(), mana + 2157);
 
@@ -115,6 +114,6 @@ public class TinyPotatoBeliever extends SubTileGenerating {
 
     @Override
     public LexiconEntry getEntry() {
-        return ModSpecialFlowers.TINY_POTATO_BELIEVER;
+        return SpecialFlowerPages.TINY_POTATO_BELIEVER;
     }
 }
