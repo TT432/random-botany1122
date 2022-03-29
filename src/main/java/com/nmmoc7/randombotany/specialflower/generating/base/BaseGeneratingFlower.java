@@ -24,6 +24,11 @@ public abstract class BaseGeneratingFlower extends SubTileGenerating {
     abstract public int getRange();
 
     @Override
+    public int getMaxMana() {
+        return Integer.MAX_VALUE;
+    }
+
+    @Override
     public RadiusDescriptor getRadius() {
         return new RadiusDescriptor.Square(toBlockPos(), getRange());
     }

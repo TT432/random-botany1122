@@ -14,6 +14,7 @@ import vazkii.botania.common.item.block.ItemBlockSpecialFlower;
 public class AltarRecipes {
     public static RecipePetals believer;
     public static RecipePetals witch;
+    public static RecipePetals citron;
 
     public static void init() {
         believer = BotaniaAPI.registerPetalRecipe(
@@ -28,6 +29,17 @@ public class AltarRecipes {
                 ModPetalRecipes.green, ModPetalRecipes.green,
                 ModPetalRecipes.purple, ModPetalRecipes.purple,
                 ModPetalRecipes.black, ModPetalRecipes.runeMana
+        );
+
+        citron = BotaniaAPI.registerPetalRecipe(
+                ItemBlockSpecialFlower.ofType(ModSpecialFlowers.CITRON_NAME),
+                ModPetalRecipes.orange, ModPetalRecipes.orange, ModPetalRecipes.orange,
+                ModPetalRecipes.orange, ModPetalRecipes.orange, ModPetalRecipes.orange,
+                ModPetalRecipes.orange,
+                ModPetalRecipes.green, ModPetalRecipes.green,
+                ModPetalRecipes.white,
+                ModPetalRecipes.runeMana,
+                ModPetalRecipes.runeWrath
         );
     }
 }

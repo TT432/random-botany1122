@@ -1,4 +1,6 @@
 tile.botania:flower.believer.name=小土豆信徒
+tile.botania:flower.witch.name=女巫花
+tile.botania:flower.citron.name=充能柚子
 
 botania.category.rb.main=随意植物学
 
@@ -7,5 +9,9 @@ botania.page.believer1=会吃掉小土豆产生中等魔力
 botania.page.believer2=当病娇成为虔信徒···
 
 botania.entry.witch=女巫花
-botania.page.witch1=会喝下药水产生大量魔力\n在连续喝下同一种药水后会衰减产出
+botania.page.witch1=喝下药水产生大量魔力 连续喝同种药水会衰减产出
 botania.page.witch2=溺水而亡
+
+botania.entry.citron=充能柚子
+botania.page.citron1=用大量魔力跳过时间
+botania.page.citron2=给你好好加个速

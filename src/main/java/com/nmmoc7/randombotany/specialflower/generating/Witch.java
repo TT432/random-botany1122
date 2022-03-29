@@ -1,5 +1,6 @@
 package com.nmmoc7.randombotany.specialflower.generating;
 
+import com.nmmoc7.randombotany.book.SpecialFlowerPages;
 import com.nmmoc7.randombotany.specialflower.generating.base.BaseGeneratingFlower;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.init.SoundEvents;
@@ -10,6 +11,7 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.potion.PotionUtils;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.world.WorldServer;
+import vazkii.botania.api.lexicon.LexiconEntry;
 
 import java.util.List;
 
@@ -90,8 +92,8 @@ public class Witch extends BaseGeneratingFlower {
     }
 
     @Override
-    public int getMaxMana() {
-        return 120000;
+    public LexiconEntry getEntry() {
+        return SpecialFlowerPages.WITCH;
     }
 
     @Override
