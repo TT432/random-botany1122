@@ -1,6 +1,6 @@
 package com.nmmoc7.randombotany.specialflower.generating;
 
-import com.nmmoc7.randombotany.book.SpecialFlowerPages;
+import com.nmmoc7.randombotany.auto.RegFlower;
 import com.nmmoc7.randombotany.specialflower.generating.base.BaseGeneratingFlower;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.init.SoundEvents;
@@ -8,14 +8,13 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumParticleTypes;
-import net.minecraft.util.SoundCategory;
 import net.minecraft.world.WorldServer;
-import vazkii.botania.api.lexicon.LexiconEntry;
 import vazkii.botania.common.item.block.ItemBlockTinyPotato;
 
 import java.util.List;
 
-public class TinyPotatoBeliever extends BaseGeneratingFlower {
+@RegFlower
+public class Believer extends BaseGeneratingFlower {
     private static final String TAG_COOLDOWN = "cooldown";
     int cooldown = 0;
 
@@ -77,11 +76,6 @@ public class TinyPotatoBeliever extends BaseGeneratingFlower {
     @Override
     public int getColor() {
         return 0xD3D604;
-    }
-
-    @Override
-    public LexiconEntry getEntry() {
-        return SpecialFlowerPages.TINY_POTATO_BELIEVER;
     }
 
     @Override

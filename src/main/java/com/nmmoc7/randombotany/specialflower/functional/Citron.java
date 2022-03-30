@@ -1,14 +1,12 @@
 package com.nmmoc7.randombotany.specialflower.functional;
 
-import com.nmmoc7.randombotany.book.SpecialFlowerPages;
-import com.nmmoc7.randombotany.specialflower.ModSpecialFlowers;
+import com.nmmoc7.randombotany.auto.RegFlower;
 import com.nmmoc7.randombotany.specialflower.functional.base.BaseFunctionalFlower;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.ITickable;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.WorldServer;
-import vazkii.botania.api.lexicon.LexiconEntry;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +14,7 @@ import java.util.List;
 /**
  * @author DustW
  **/
+@RegFlower
 public class Citron extends BaseFunctionalFlower {
     private final List<BlockPos> needParticle = new ArrayList<>();
 
@@ -75,10 +74,5 @@ public class Citron extends BaseFunctionalFlower {
     @Override
     public int cost() {
         return 35000;
-    }
-
-    @Override
-    public LexiconEntry getEntry() {
-        return SpecialFlowerPages.CITRON;
     }
 }

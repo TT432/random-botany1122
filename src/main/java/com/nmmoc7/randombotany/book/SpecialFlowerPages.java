@@ -9,21 +9,27 @@ import vazkii.botania.common.lexicon.BasicLexiconEntry;
 import vazkii.botania.common.lexicon.page.PagePetalRecipe;
 import vazkii.botania.common.lexicon.page.PageText;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * @author DustW
  **/
 public class SpecialFlowerPages {
-    public static final LexiconEntry TINY_POTATO_BELIEVER = page(ModSpecialFlowers.TINY_POTATO_BELIEVER_NAME, AltarRecipes.believer);
-    public static final LexiconEntry WITCH = page(ModSpecialFlowers.WITCH_NAME, AltarRecipes.witch);
-    public static final LexiconEntry CITRON = page(ModSpecialFlowers.CITRON_NAME, AltarRecipes.citron);
+    private static final Map<String, LexiconEntry> map = new HashMap<>();
 
-    private static LexiconEntry page(String name, RecipePetals recipe) {
+    public static LexiconEntry get(String name) {
+        return map.getOrDefault(name, page(name));
+    }
+
+    private static LexiconEntry page(String name) {
         LexiconEntry result = new BasicLexiconEntry(name, RandomBotanyCategory.CATEGORY_RB)
                 .setPriority()
                 .setLexiconPages(new PageText("1"),
-                        new PagePetalRecipe<>("2", recipe)
+                        new PagePetalRecipe<>("2", AltarRecipes.get(name))
                 );
         result.setIcon(ItemBlockSpecialFlower.ofType(name));
+        map.put(name, result);
         return result;
     }
 

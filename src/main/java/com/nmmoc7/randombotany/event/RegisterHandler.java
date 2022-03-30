@@ -1,10 +1,7 @@
 package com.nmmoc7.randombotany.event;
 
 import com.nmmoc7.randombotany.RandomBotany;
-import com.nmmoc7.randombotany.specialflower.ModSpecialFlowers;
-import com.nmmoc7.randombotany.specialflower.functional.Citron;
-import com.nmmoc7.randombotany.specialflower.generating.TinyPotatoBeliever;
-import com.nmmoc7.randombotany.specialflower.generating.Witch;
+import com.nmmoc7.randombotany.auto.ClassScanner;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraftforge.client.event.ModelRegistryEvent;
@@ -18,18 +15,11 @@ import vazkii.botania.api.BotaniaAPIClient;
 import vazkii.botania.api.subtile.SubTileEntity;
 import vazkii.botania.api.subtile.signature.BasicSignature;
 
-import java.util.HashMap;
 import java.util.Map;
 
 @Mod.EventBusSubscriber
 public class RegisterHandler {
-    static Map<String, Class<? extends SubTileEntity>> map = new HashMap<>();
-
-    static {
-        map.put(ModSpecialFlowers.TINY_POTATO_BELIEVER_NAME, TinyPotatoBeliever.class);
-        map.put(ModSpecialFlowers.WITCH_NAME, Witch.class);
-        map.put(ModSpecialFlowers.CITRON_NAME, Citron.class);
-    }
+    static Map<String, Class<? extends SubTileEntity>> map = ClassScanner.getFlowers();
 
     @SubscribeEvent
     public static void onBlockRegister(RegistryEvent.Register<Block> event) {

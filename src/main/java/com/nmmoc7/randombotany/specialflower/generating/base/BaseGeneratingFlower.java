@@ -1,8 +1,12 @@
 package com.nmmoc7.randombotany.specialflower.generating.base;
 
+import com.nmmoc7.randombotany.book.SpecialFlowerPages;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.util.math.AxisAlignedBB;
+import vazkii.botania.api.BotaniaAPI;
+import vazkii.botania.api.lexicon.LexiconEntry;
 import vazkii.botania.api.subtile.RadiusDescriptor;
+import vazkii.botania.api.subtile.SubTileEntity;
 import vazkii.botania.api.subtile.SubTileGenerating;
 
 import javax.annotation.Nullable;
@@ -31,5 +35,10 @@ public abstract class BaseGeneratingFlower extends SubTileGenerating {
     @Override
     public RadiusDescriptor getRadius() {
         return new RadiusDescriptor.Square(toBlockPos(), getRange());
+    }
+
+    @Override
+    public LexiconEntry getEntry() {
+        return SpecialFlowerPages.get(getUnlocalizedName());
     }
 }

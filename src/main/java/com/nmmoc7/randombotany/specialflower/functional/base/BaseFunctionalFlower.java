@@ -1,7 +1,11 @@
 package com.nmmoc7.randombotany.specialflower.functional.base;
 
+import com.nmmoc7.randombotany.book.SpecialFlowerPages;
+import net.minecraft.entity.Entity;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
+import vazkii.botania.api.lexicon.LexiconEntry;
 import vazkii.botania.api.subtile.RadiusDescriptor;
 import vazkii.botania.api.subtile.SubTileFunctional;
 
@@ -25,6 +29,14 @@ public abstract class BaseFunctionalFlower extends SubTileFunctional {
      * @return cost
      */
     abstract public int cost();
+
+    protected <T extends Entity> List<T> searchEntities(Class<T> clazz, @Nullable Predicate<Entity> filter) {
+        return getWorld().getEntitiesWithinAABB(clazz,
+                new AxisAlignedBB(getPos().add(-getRange(), -getRange(), -getRange()),
+                        getPos().add(getRange() + 1, getRange() + 1, getRange() + 1)),
+                (entity) ->
+                        entity.isEntityAlive() && (filter == null || filter.test(entity)));
+    }
 
     protected List<TileEntity> searchTileEntity(int w, int h, @Nullable Predicate<TileEntity> filter) {
         List<TileEntity> result = new ArrayList<>();
@@ -58,5 +70,10 @@ public abstract class BaseFunctionalFlower extends SubTileFunctional {
     @Override
     public RadiusDescriptor getRadius() {
         return new RadiusDescriptor.Square(getPos(), getRange());
+    }
+
+    @Override
+    public LexiconEntry getEntry() {
+        return SpecialFlowerPages.get(getUnlocalizedName());
     }
 }

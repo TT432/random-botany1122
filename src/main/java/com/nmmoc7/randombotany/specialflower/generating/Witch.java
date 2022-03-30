@@ -1,6 +1,6 @@
 package com.nmmoc7.randombotany.specialflower.generating;
 
-import com.nmmoc7.randombotany.book.SpecialFlowerPages;
+import com.nmmoc7.randombotany.auto.RegFlower;
 import com.nmmoc7.randombotany.specialflower.generating.base.BaseGeneratingFlower;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.init.SoundEvents;
@@ -11,13 +11,13 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.potion.PotionUtils;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.world.WorldServer;
-import vazkii.botania.api.lexicon.LexiconEntry;
 
 import java.util.List;
 
 /**
  * @author DustW
  **/
+@RegFlower
 public class Witch extends BaseGeneratingFlower {
     private static final String TAG_COOLDOWN = "cooldown";
     private int cooldown;
@@ -89,11 +89,6 @@ public class Witch extends BaseGeneratingFlower {
     public void readFromPacketNBT(NBTTagCompound cmp) {
         super.readFromPacketNBT(cmp);
         cooldown = cmp.getInteger(TAG_COOLDOWN);
-    }
-
-    @Override
-    public LexiconEntry getEntry() {
-        return SpecialFlowerPages.WITCH;
     }
 
     @Override

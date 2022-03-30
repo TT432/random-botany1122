@@ -1,5 +1,6 @@
 package com.nmmoc7.randombotany;
 
+import com.nmmoc7.randombotany.auto.JsonGen;
 import com.nmmoc7.randombotany.book.RandomBotanyCategory;
 import com.nmmoc7.randombotany.recipes.AltarRecipes;
 import com.nmmoc7.randombotany.specialflower.ModSpecialFlowers;
@@ -24,5 +25,7 @@ public class RandomBotany {
     public void onInit(FMLInitializationEvent event) {
         AltarRecipes.init();
         RandomBotanyCategory.init();
+
+        JsonGen.generate();
     }
 }

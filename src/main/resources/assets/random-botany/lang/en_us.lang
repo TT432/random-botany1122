@@ -1,6 +1,7 @@
 tile.botania:flower.believer.name=小土豆信徒
 tile.botania:flower.witch.name=女巫花
 tile.botania:flower.citron.name=充能柚子
+tile.botania:flower.vacuity.name=真空花
 
 botania.category.rb.main=随意植物学
 
@@ -18,3 +19,8 @@ botania.entry.citron=充能柚子
 botania.page.citron1=用大量魔力跳过时间
 botania.page.citron2=给你好好加个速
 botania.tagline.citron=给你好好加个速
+
+botania.entry.vacuity=真空花
+botania.page.vacuity1=用中等魔力制造真空
+botania.page.vacuity2=咕噜噜噜···
+botania.tagline.vacuity=用中等魔力制造真空
