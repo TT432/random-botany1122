@@ -1,6 +1,6 @@
 package com.nmmoc7.randombotany.recipes;
 
-import com.nmmoc7.randombotany.specialflower.ModSpecialFlowers;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import vazkii.botania.api.BotaniaAPI;
 import vazkii.botania.api.recipe.RecipePetals;
@@ -15,30 +15,22 @@ import java.util.Map;
  * @author DustW
  **/
 public class AltarRecipes {
-    public static RecipePetals believer;
-    public static RecipePetals witch;
-    public static RecipePetals citron;
-    public static RecipePetals vacuity;
-
     private static final Map<String, RecipePetals> map = new HashMap<>();
 
     public static void init() {
-        believer = register(
-                ModSpecialFlowers.TINY_POTATO_BELIEVER_NAME,
+        register("believer",
                 ModPetalRecipes.green, ModPetalRecipes.green,
                 ModPetalRecipes.black, ModPetalRecipes.black,
                 ModPetalRecipes.runeMana, new ItemStack(ModBlocks.tinyPotato)
         );
 
-        witch = register(
-                ModSpecialFlowers.WITCH_NAME,
+        register("witch",
                 ModPetalRecipes.green, ModPetalRecipes.green,
                 ModPetalRecipes.purple, ModPetalRecipes.purple,
                 ModPetalRecipes.black, ModPetalRecipes.runeMana
         );
 
-        citron = register(
-                ModSpecialFlowers.CITRON_NAME,
+        register("citron",
                 ModPetalRecipes.orange, ModPetalRecipes.orange, ModPetalRecipes.orange,
                 ModPetalRecipes.orange, ModPetalRecipes.orange, ModPetalRecipes.orange,
                 ModPetalRecipes.orange,
@@ -48,22 +40,29 @@ public class AltarRecipes {
                 ModPetalRecipes.runeWrath
         );
 
-        vacuity = register(
-                ModSpecialFlowers.VACUITY_NAME,
+        register("vacuity",
                 ModPetalRecipes.white, ModPetalRecipes.white, ModPetalRecipes.white,
                 ModPetalRecipes.white, ModPetalRecipes.white, ModPetalRecipes.white,
                 ModPetalRecipes.white,
                 ModPetalRecipes.runeMana
         );
+
+        register("cuseater",
+                ModPetalRecipes.red, ModPetalRecipes.red, ModPetalRecipes.red,
+                ModPetalRecipes.red, ModPetalRecipes.red, ModPetalRecipes.red,
+                ModPetalRecipes.red,
+                ModPetalRecipes.lightGray, ModPetalRecipes.lightGray,
+                ModPetalRecipes.lightGray,
+                ModPetalRecipes.runeGluttony,
+                new ItemStack(Items.ENCHANTED_BOOK));
     }
 
     public static RecipePetals get(String name) {
         return map.get(name);
     }
 
-    private static RecipePetals register(String name, Object... items) {
+    private static void register(String name, Object... items) {
         RecipePetals result = BotaniaAPI.registerPetalRecipe(ItemBlockSpecialFlower.ofType(name), items);
         map.put(name, result);
-        return result;
     }
 }

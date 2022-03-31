@@ -20,12 +20,14 @@ import java.util.function.Predicate;
 public abstract class BaseFunctionalFlower extends SubTileFunctional {
     /**
      * 获取作用范围
+     *
      * @return range
      */
     abstract public int getRange();
 
     /**
      * 获取消耗
+     *
      * @return cost
      */
     abstract public int cost();
@@ -48,7 +50,7 @@ public abstract class BaseFunctionalFlower extends SubTileFunctional {
         int z = pos.getZ();
 
         for (int i = x - w; i <= x + w; i++) {
-            for (int k = z - w; k <= z + w; k++ ) {
+            for (int k = z - w; k <= z + w; k++) {
                 for (int j = y - h; j <= y + h; j++) {
                     TileEntity tile = getWorld().getTileEntity(new BlockPos(i, j, k));
 

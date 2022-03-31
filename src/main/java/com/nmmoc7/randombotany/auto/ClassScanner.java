@@ -15,57 +15,6 @@ import java.util.jar.JarFile;
  * @author DustW
  **/
 public class ClassScanner {
-    public static Map<String, Class<? extends SubTileEntity>> getFlowers() {
-        Map<String, Class<? extends SubTileEntity>> result = new HashMap<>();
-
-        Set<Class<?>> classSet = new HashSet<>();
-
-        try {
-            classSet = getClasses("com/nmmoc7/randombotany/specialflower");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        classSet.forEach(aClass -> {
-            if (SubTileEntity.class.isAssignableFrom(aClass)) {
-                RegFlower annotation = aClass.getAnnotation(RegFlower.class);
-                if (annotation != null) {
-                    String name;
-
-                    if ("".equals(annotation.value())) {
-                        name = name(aClass.getSimpleName());
-                    }
-                    else {
-                        name = annotation.value();
-                    }
-
-                    result.put(name, (Class<? extends SubTileEntity>) aClass);
-                }
-            }
-        });
-
-        return result;
-    }
-
-    public static String name(String name) {
-        StringBuilder result = new StringBuilder();
-        if (name != null && name.length() > 0) {
-            // 将第一个字符处理成小写
-            result.append(name.substring(0, 1).toLowerCase());
-            // 循环处理其余字符
-            for (int i = 1; i < name.length(); i++) {
-                String s = name.substring(i, i + 1);
-                // 在大写字母前添加下划线
-                if (s.equals(s.toUpperCase()) && !Character.isDigit(s.charAt(0))) {
-                    result.append("_");
-                }
-                // 其他字符直接转成小写
-                result.append(s.toLowerCase());
-            }
-        }
-        return result.toString();
-    }
-
     /**
      * 根据包名获取包下面所有的类名
      *
@@ -159,6 +108,7 @@ public class ClassScanner {
             }
         }
     }
+
     /**
      * 以jar的形式来获取包下的所有Class
      *

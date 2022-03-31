@@ -53,8 +53,7 @@ public class Witch extends BaseGeneratingFlower {
                 if (lastEffectType == null) {
                     lastEffectType = potion.getPotion();
                     lastEffectTypeAmount = 1;
-                }
-                else if (lastEffectType == potion.getPotion()) {
+                } else if (lastEffectType == potion.getPotion()) {
                     mana /= ++lastEffectTypeAmount;
                 }
 

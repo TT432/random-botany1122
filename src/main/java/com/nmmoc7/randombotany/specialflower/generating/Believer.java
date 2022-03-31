@@ -26,7 +26,7 @@ public class Believer extends BaseGeneratingFlower {
             return;
         }
 
-        if(cooldown > 0) {
+        if (cooldown > 0) {
             cooldown--;
         }
 
@@ -40,7 +40,7 @@ public class Believer extends BaseGeneratingFlower {
                     item.getAge() >= slowdown;
         });
 
-        for(EntityItem item : items) {
+        for (EntityItem item : items) {
             ItemStack stack = item.getItem();
 
             stack.shrink(1);

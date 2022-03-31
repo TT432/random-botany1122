@@ -1,7 +1,9 @@
 package com.nmmoc7.randombotany.event;
 
 import com.nmmoc7.randombotany.RandomBotany;
+import com.nmmoc7.randombotany.auto.AutoUtil;
 import com.nmmoc7.randombotany.auto.ClassScanner;
+import com.nmmoc7.randombotany.auto.RegFlower;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraftforge.client.event.ModelRegistryEvent;
@@ -15,11 +17,14 @@ import vazkii.botania.api.BotaniaAPIClient;
 import vazkii.botania.api.subtile.SubTileEntity;
 import vazkii.botania.api.subtile.signature.BasicSignature;
 
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 @Mod.EventBusSubscriber
 public class RegisterHandler {
-    static Map<String, Class<? extends SubTileEntity>> map = ClassScanner.getFlowers();
+    static Map<String, Class<? extends SubTileEntity>> map = getFlowers();
 
     @SubscribeEvent
     public static void onBlockRegister(RegistryEvent.Register<Block> event) {
@@ -46,5 +51,36 @@ public class RegisterHandler {
     @SideOnly(Side.CLIENT)
     public static ModelResourceLocation getResourceLocation(String name) {
         return new ModelResourceLocation(RandomBotany.MOD_ID + ":" + name);
+    }
+
+    public static Map<String, Class<? extends SubTileEntity>> getFlowers() {
+        Map<String, Class<? extends SubTileEntity>> result = new HashMap<>();
+
+        Set<Class<?>> classSet = new HashSet<>();
+
+        try {
+            classSet = ClassScanner.getClasses("com/nmmoc7/randombotany/specialflower");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        classSet.forEach(aClass -> {
+            if (SubTileEntity.class.isAssignableFrom(aClass)) {
+                RegFlower annotation = aClass.getAnnotation(RegFlower.class);
+                if (annotation != null) {
+                    String name;
+
+                    if ("".equals(annotation.value())) {
+                        name = AutoUtil.toLowerCaseName(aClass.getSimpleName());
+                    } else {
+                        name = annotation.value();
+                    }
+
+                    result.put(name, (Class<? extends SubTileEntity>) aClass);
+                }
+            }
+        });
+
+        return result;
     }
 }

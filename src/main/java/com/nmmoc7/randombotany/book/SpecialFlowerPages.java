@@ -1,9 +1,7 @@
 package com.nmmoc7.randombotany.book;
 
 import com.nmmoc7.randombotany.recipes.AltarRecipes;
-import com.nmmoc7.randombotany.specialflower.ModSpecialFlowers;
 import vazkii.botania.api.lexicon.LexiconEntry;
-import vazkii.botania.api.recipe.RecipePetals;
 import vazkii.botania.common.item.block.ItemBlockSpecialFlower;
 import vazkii.botania.common.lexicon.BasicLexiconEntry;
 import vazkii.botania.common.lexicon.page.PagePetalRecipe;

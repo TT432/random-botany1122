@@ -3,9 +3,8 @@ package com.nmmoc7.randombotany;
 import com.nmmoc7.randombotany.auto.JsonGen;
 import com.nmmoc7.randombotany.book.RandomBotanyCategory;
 import com.nmmoc7.randombotany.recipes.AltarRecipes;
-import com.nmmoc7.randombotany.specialflower.ModSpecialFlowers;
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 
 @Mod(
         modid = RandomBotany.MOD_ID,

@@ -1,6 +1,5 @@
 package com.nmmoc7.randombotany.auto;
 
-import com.google.gson.JsonObject;
 import com.nmmoc7.randombotany.RandomBotany;
 import com.nmmoc7.randombotany.event.RegisterHandler;
 import net.minecraft.util.ResourceLocation;
@@ -22,7 +21,7 @@ public class JsonGen {
 
     public static void generate() {
         if (need) {
-            ClassScanner.getFlowers().forEach((s, c) -> {
+            RegisterHandler.getFlowers().forEach((s, c) -> {
                 Path path = normalPath("blockstates", new ResourceLocation(RandomBotany.MOD_ID, s));
                 save(path, json(s));
             });
@@ -52,23 +51,23 @@ public class JsonGen {
     static String json(String name) {
         return
                 "{\n" +
-                "  \"forge_marker\": 1,\n" +
-                "  \"variants\": {\n" +
-                "    \"normal\": [{\n" +
-                "      \"model\": \"botania:shapes/cross_tinted\",\n" +
-                "      \"textures\": {\n" +
-                "        \"cross\": \"random-botany:blocks/" + name + "\"\n" +
-                "      }\n" +
-                "    }],\n" +
-                "    \"inventory\": [{\n" +
-                "      \"model\": \"builtin/generated\",\n" +
-                "      \"transform\": \"forge:default-item\",\n" +
-                "      \"textures\": {\n" +
-                "        \"layer0\": \"random-botany:blocks/" + name + "\"\n" +
-                "      }\n" +
-                "    }]\n" +
-                "  }\n" +
-                "}";
+                        "  \"forge_marker\": 1,\n" +
+                        "  \"variants\": {\n" +
+                        "    \"normal\": [{\n" +
+                        "      \"model\": \"botania:shapes/cross_tinted\",\n" +
+                        "      \"textures\": {\n" +
+                        "        \"cross\": \"random-botany:blocks/" + name + "\"\n" +
+                        "      }\n" +
+                        "    }],\n" +
+                        "    \"inventory\": [{\n" +
+                        "      \"model\": \"builtin/generated\",\n" +
+                        "      \"transform\": \"forge:default-item\",\n" +
+                        "      \"textures\": {\n" +
+                        "        \"layer0\": \"random-botany:blocks/" + name + "\"\n" +
+                        "      }\n" +
+                        "    }]\n" +
+                        "  }\n" +
+                        "}";
     }
 
     protected static Path normalPath(String path, ResourceLocation resourceLocation) {
