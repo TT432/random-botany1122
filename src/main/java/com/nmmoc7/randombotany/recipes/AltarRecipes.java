@@ -6,6 +6,7 @@ import vazkii.botania.api.BotaniaAPI;
 import vazkii.botania.api.recipe.RecipePetals;
 import vazkii.botania.common.block.ModBlocks;
 import vazkii.botania.common.crafting.ModPetalRecipes;
+import vazkii.botania.common.item.ModItems;
 import vazkii.botania.common.item.block.ItemBlockSpecialFlower;
 
 import java.util.HashMap;
@@ -55,6 +56,22 @@ public class AltarRecipes {
                 ModPetalRecipes.lightGray,
                 ModPetalRecipes.runeGluttony,
                 new ItemStack(Items.ENCHANTED_BOOK));
+
+        register("willeater",
+                ModPetalRecipes.green, ModPetalRecipes.green,
+                ModPetalRecipes.green, ModPetalRecipes.green,
+                ModPetalRecipes.runePride, ModPetalRecipes.runePride,
+                new ItemStack(ModItems.ancientWill, 1, 0),
+                new ItemStack(ModItems.ancientWill, 1, 1),
+                new ItemStack(ModItems.ancientWill, 1, 2),
+                new ItemStack(ModItems.ancientWill, 1, 3),
+                new ItemStack(ModItems.ancientWill, 1, 4),
+                new ItemStack(ModItems.ancientWill, 1, 5),
+                new ItemStack(ModItems.manaResource, 1, 5),
+                new ItemStack(ModItems.manaResource, 1, 5),
+                new ItemStack(ModItems.manaResource, 1, 5),
+                new ItemStack(ModItems.manaResource, 1, 5)
+        );
     }
 
     public static RecipePetals get(String name) {

@@ -1,26 +1,37 @@
-tile.botania:flower.believer.name=小土豆信徒
-tile.botania:flower.witch.name=女巫花
-tile.botania:flower.citron.name=充能柚子
-tile.botania:flower.vacuity.name=真空花
-
 botania.category.rb.main=随意植物学
 
+tile.botania:flower.believer.name=小土豆信徒
 botania.entry.believer=小土豆信徒
 botania.page.believer1=会吃掉小土豆产生中等魔力
 botania.page.believer2=当病娇成为虔信徒···
 botania.tagline.believer=会吃掉小土豆产生中等魔力
 
+tile.botania:flower.witch.name=女巫花
 botania.entry.witch=女巫花
 botania.page.witch1=喝下药水产生大量魔力 连续喝同种药水会衰减产出
 botania.page.witch2=溺水而亡
 botania.tagline.witch=喝下药水产生大量魔力
 
+tile.botania:flower.citron.name=充能柚子
 botania.entry.citron=充能柚子
 botania.page.citron1=用大量魔力跳过时间
 botania.page.citron2=给你好好加个速
 botania.tagline.citron=给你好好加个速
 
+tile.botania:flower.vacuity.name=真空花
 botania.entry.vacuity=真空花
 botania.page.vacuity1=用中等魔力制造真空
 botania.page.vacuity2=咕噜噜噜···
 botania.tagline.vacuity=用中等魔力制造真空
+
+tile.botania:flower.curseater.name=喰咒蓟
+botania.entry.curseater=喰咒蓟
+botania.page.curseater1=消耗大量魔力 祛除玩家盔甲上的诅咒
+botania.page.curseater2=为什么末地不长一朵这个呢？
+botania.tagline.curseater=祛除玩家盔甲上的诅咒
+
+tile.botania:flower.willeater.name=意噬草
+botania.entry.willeater=意噬草
+botania.page.willeater1=吸收盖亚守护者掉落的意志 连续吸收同种意志会提高产出
+botania.page.willeater2=Gol Hah Dov ！
+botania.tagline.willeater=吸收盖亚守护者掉落的意志
